@@ -1,4 +1,4 @@
-package com.ngleanhvu.service.impl;
+package com.ngleanhvu.security;
 
 import com.ngleanhvu.entity.User;
 import com.ngleanhvu.execption.ResourceNotFoundException;

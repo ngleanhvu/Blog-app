@@ -1,5 +1,6 @@
 package com.ngleanhvu.controller;
 
+import com.ngleanhvu.dto.JWTAuthResponse;
 import com.ngleanhvu.dto.LoginDTO;
 import com.ngleanhvu.dto.RegisterDTO;
 import com.ngleanhvu.service.AuthService;
@@ -17,11 +18,14 @@ public class AuthController {
         this.authService=authService;
     }
     @PostMapping(value = {"/login","/sign-in"})
-    public ResponseEntity<String> login(@RequestBody LoginDTO loginDTO){
+    public ResponseEntity<JWTAuthResponse> login(@RequestBody LoginDTO loginDTO){
+        String token= authService.login(loginDTO);
+        JWTAuthResponse jwtAuthResponse=new JWTAuthResponse();
+        jwtAuthResponse.setAccessToken(token);
         return ResponseEntity
                 .ok()
                 .header("custom-header","nguyen-vu")
-                .body(authService.login(loginDTO));
+                .body(jwtAuthResponse);
     }
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterDTO registerDTO){

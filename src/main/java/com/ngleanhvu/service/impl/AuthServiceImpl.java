@@ -7,6 +7,7 @@ import com.ngleanhvu.entity.User;
 import com.ngleanhvu.execption.BlogAPIException;
 import com.ngleanhvu.repository.RoleRepository;
 import com.ngleanhvu.repository.UserRepository;
+import com.ngleanhvu.security.JwtTokenProvider;
 import com.ngleanhvu.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,21 +26,25 @@ public class AuthServiceImpl implements AuthService {
     private AuthenticationManager authenticationManager;
     private RoleRepository roleRepository;
     private UserRepository userRepository;
+    private JwtTokenProvider jwtTokenProvider;
     @Autowired
     private PasswordEncoder passwordEncoder;
     public AuthServiceImpl(AuthenticationManager authenticationManager,
                            RoleRepository roleRepository,
-                           UserRepository userRepository){
+                           UserRepository userRepository,
+                           JwtTokenProvider jwtTokenProvider){
         this.authenticationManager=authenticationManager;
         this.roleRepository=roleRepository;
         this.userRepository=userRepository;
+        this.jwtTokenProvider=jwtTokenProvider;
     }
     @Override
     public String login(LoginDTO loginDTO) {
-        Authentication authentication=authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDTO.getUsernameOrEmail(),
+        Authentication authentication=authenticationManager
+                .authenticate(new UsernamePasswordAuthenticationToken(loginDTO.getUsernameOrEmail(),
                 loginDTO.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return "User logged-in successfully";
+        return jwtTokenProvider.generateToken(authentication);
     }
     @Override
     public String register(RegisterDTO registerDTO) {
