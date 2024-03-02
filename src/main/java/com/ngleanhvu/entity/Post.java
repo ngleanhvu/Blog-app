@@ -1,9 +1,7 @@
 package com.ngleanhvu.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -11,7 +9,8 @@ import java.util.List;
 @Table(name="posts", uniqueConstraints = {
         @UniqueConstraint(columnNames = {"title"})
 })
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Post {
@@ -26,4 +25,7 @@ public class Post {
     private String content;
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
 }

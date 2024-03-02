@@ -21,4 +21,5 @@ public class PostDTO {
     @NotEmpty
     private String content;
     private List<CommentDTO> comments;
+    private Integer categoryId;
 }
