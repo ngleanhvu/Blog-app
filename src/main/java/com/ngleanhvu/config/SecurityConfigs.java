@@ -2,6 +2,8 @@ package com.ngleanhvu.config;
 
 import com.ngleanhvu.security.JwtAuthenticationEntryPoint;
 import com.ngleanhvu.security.JwtAuthenticationFilter;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,6 +29,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableMethodSecurity
+@SecurityScheme(
+        name = "Bear Authentication",
+        type = SecuritySchemeType.HTTP,
+        scheme = "bearer",
+        bearerFormat = "JWT"
+)
 public class SecurityConfigs {
     private UserDetailsService userDetailsService;
     private JwtAuthenticationEntryPoint authenticationEntryPoint;
@@ -52,6 +60,8 @@ public class SecurityConfigs {
                 .authorizeHttpRequests((authorize)->{
                     authorize.requestMatchers(HttpMethod.GET,"/api/**").permitAll()
                             .requestMatchers(HttpMethod.POST,"/api/v1/auth/**").permitAll()
+                            .requestMatchers("/swagger-ui/**").permitAll()
+                            .requestMatchers("/v3/api-docs/**").permitAll()
                             .anyRequest().authenticated();
                 }).exceptionHandling(exception-> exception
                         .authenticationEntryPoint(authenticationEntryPoint)

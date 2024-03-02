@@ -4,6 +4,11 @@ import com.ngleanhvu.dto.PostDTO;
 import com.ngleanhvu.entity.Post;
 import com.ngleanhvu.service.IPostService;
 import com.ngleanhvu.utils.AppConstants;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,6 +18,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/posts")
+@Tag(
+        name = "CRUD REST APIs for Post Resource"
+)
 public class PostController {
     private IPostService iPostService;
 
@@ -20,6 +28,17 @@ public class PostController {
         this.iPostService = iPostService;
     }
 
+    @Operation(
+            summary = "Create Post REST APIs",
+            description = "Create Post REST APIs is used to save post into database"
+    )
+    @ApiResponse(
+            responseCode = "201",
+            description = "Http Status 201 CREATED"
+    )
+    @SecurityRequirement(
+            name = "Bear Authentication"
+    )
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping()
     public ResponseEntity<PostDTO> createPost(@Valid  @RequestBody() PostDTO postDTO) {
@@ -37,6 +56,9 @@ public class PostController {
                 .body(iPostService.getPostById(id));
 
     }
+    @SecurityRequirement(
+            name = "Bear Authentication"
+    )
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<PostDTO> updatePostDTO(@PathVariable(name = "id") Integer id,
@@ -47,6 +69,9 @@ public class PostController {
                 .header("custom-header", "nguyen-vu")
                 .body(iPostService.updatePost(postDTO));
     }
+    @SecurityRequirement(
+            name = "Bear Authentication"
+    )
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deletePostDTOById(@PathVariable(name = "id") Integer id){
