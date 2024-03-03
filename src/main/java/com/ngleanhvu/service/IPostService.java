@@ -11,4 +11,5 @@ public interface IPostService {
     PostDTO updatePost(PostDTO postDTO);
     void deletePostById(Integer id);
     List<PostDTO> getAllPosts(Integer pageSize, Integer pageNo, String sortBy, String sortDir);
+    List<PostDTO> searchProducts(String query);
 }

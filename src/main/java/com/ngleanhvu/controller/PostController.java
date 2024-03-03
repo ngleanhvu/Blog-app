@@ -93,4 +93,11 @@ public class PostController {
                 .header("custom-header","'nguyen-vu")
                 .body(iPostService.getAllPosts(pageSize,pageNo,sortBy,sortDir));
     }
+    @GetMapping("/search")
+    public ResponseEntity<List<PostDTO>> searchPosts(@RequestParam(name = "query") String query){
+        return ResponseEntity
+                .ok()
+                .header("custom-header","nguyen-vu")
+                .body(iPostService.searchProducts(query));
+    }
 }

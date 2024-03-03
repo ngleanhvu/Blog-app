@@ -86,6 +86,13 @@ public class PostServiceImpl implements IPostService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<PostDTO> searchProducts(String query) {
+        return postRepository.searchProductsSQL(query)
+                .stream().map(u->modelMapper.map(u,PostDTO.class))
+                .collect(Collectors.toList());
+    }
+
     private void changAttribute(Category category, Post previousPost, PostDTO newPost) {
         String content = newPost.getContent();
         String description = newPost.getDescription();
