@@ -1,0 +1,37 @@
+2025-04-23 13:04:53,684 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-23 13:04:53,716 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource                 : HikariPool-1 - Shutdown initiated...
+2025-04-23 13:04:53,723 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource                 : HikariPool-1 - Shutdown completed.
+2025-04-23 19:25:31,370 [restartedMain] INFO  com.ngleanhvu.LearnJavaApplication                 : Starting LearnJavaApplication using Java 21.0.5 with PID 10996 (/Users/nguoideptrangian/Documents/Blog-app/target/classes started by nguoideptrangian in /Users/nguoideptrangian/Documents/Blog-app)
+2025-04-23 19:25:31,373 [restartedMain] INFO  com.ngleanhvu.LearnJavaApplication                 : No active profile set, falling back to 1 default profile: "default"
+2025-04-23 19:25:31,481 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-23 19:25:31,482 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-23 19:25:33,125 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-23 19:25:33,219 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          : Finished Spring Data repository scanning in 85 ms. Found 5 JPA repository interfaces.
+2025-04-23 19:25:34,147 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            : Tomcat initialized with port 8080 (http)
+2025-04-23 19:25:34,159 [restartedMain] INFO  o.apache.catalina.core.StandardService             : Starting service [Tomcat]
+2025-04-23 19:25:34,159 [restartedMain] INFO  org.apache.catalina.core.StandardEngine            : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2025-04-23 19:25:34,197 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 : Initializing Spring embedded WebApplicationContext
+2025-04-23 19:25:34,197 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     : Root WebApplicationContext: initialization completed in 2715 ms
+2025-04-23 19:25:34,540 [restartedMain] INFO  o.hibernate.jpa.internal.util.LogHelper            : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-23 19:25:34,579 [restartedMain] INFO  org.hibernate.Version                              : HHH000412: Hibernate ORM core version 6.4.1.Final
+2025-04-23 19:25:34,604 [restartedMain] INFO  o.h.c.internal.RegionFactoryInitiator              : HHH000026: Second-level cache disabled
+2025-04-23 19:25:34,771 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo                : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-23 19:25:34,803 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource                 : HikariPool-1 - Starting...
+2025-04-23 19:25:38,516 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool                  : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1ea21426
+2025-04-23 19:25:38,523 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource                 : HikariPool-1 - Start completed.
+2025-04-23 19:25:39,104 [restartedMain] WARN  org.hibernate.orm.deprecation                      : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-23 19:25:40,131 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-23 19:25:44,204 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-23 19:25:44,590 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory               : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-23 19:25:46,112 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-23 19:25:47,188 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver                : Exposing 14 endpoint(s) beneath base path '/actuator'
+2025-04-23 19:25:47,260 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@26b545d3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@53f4327d, org.springframework.security.web.context.SecurityContextHolderFilter@341f2e8b, org.springframework.security.web.header.HeaderWriterFilter@3c52ad8b, org.springframework.web.filter.CorsFilter@4195c6ed, org.springframework.security.web.authentication.logout.LogoutFilter@7af4c470, com.ngleanhvu.security.JwtAuthenticationFilter@794e6e0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ea43f70, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3a1c13cc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@252cefc, org.springframework.security.web.session.SessionManagementFilter@3d7b801c, org.springframework.security.web.access.ExceptionTranslationFilter@5b9f35b1, org.springframework.security.web.access.intercept.AuthorizationFilter@1afa4c44]
+2025-04-23 19:25:48,319 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer                 : LiveReload server is running on port 35729
+2025-04-23 19:25:48,410 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            : Tomcat started on port 8080 (http) with context path ''
+2025-04-23 19:25:48,441 [restartedMain] INFO  com.ngleanhvu.LearnJavaApplication                 : Started LearnJavaApplication in 17.777 seconds (process running for 19.163)
+2025-04-23 19:25:49,175 [RMI TCP Connection(4)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-23 19:25:49,177 [RMI TCP Connection(4)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet                  : Initializing Servlet 'dispatcherServlet'
+2025-04-23 19:25:49,179 [RMI TCP Connection(4)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet                  : Completed initialization in 2 ms
+2025-04-23 19:26:05,183 [http-nio-8080-exec-1] INFO  o.apache.tomcat.util.http.parser.Cookie            : A cookie header was received [g_state={"i_l":0}] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2025-04-23 19:26:10,700 [http-nio-8080-exec-9] INFO  o.springdoc.api.AbstractOpenApiResource            : Init duration for springdoc-openapi is: 339 ms
